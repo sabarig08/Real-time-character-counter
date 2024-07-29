@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Time Charater Counter</title>
+    <script src="javascript.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="counter">
+            <h1>Real-Time Charater Counter</h1>
+            <input type="text" placeholder="Please Write Your Text Here....." maxlength="50">
+            <p id="cl1"><b>Total Charater:<span id="Total">0</span></b></p>  
+            <p id="cl1"><b>Remaining: <span id="remaining">50</span></b></p>
+    
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+    const textarea = document.getElementById('input');
+    const total = document.getElementById('total');
+    const remaining = document.getElementById('remaining');
+    const maxLength = parseInt(textarea.getAttribute('maxlength'));
+
+    textarea.addEventListener('input', () => {
+        const textLength = textarea.value.length;
+        total.textContent = textLength;
+        remaining.textContent = maxLength - textLength;
+    });
+});
+
+    </script>
+    
+</body>
+</html>
